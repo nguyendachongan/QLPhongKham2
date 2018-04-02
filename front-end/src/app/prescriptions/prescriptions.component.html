@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-sm-12 white-box">
+    <div class="col-sm-5">
+      <input class="form-control" placeholder="search ...">
+    </div>
+    <button
+      class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light"
+      (click)="staticModal.show()">Add Prescription
+    </button>
+  </div>
+  <div class="white-box col-sm-12">
+
+    <div class="table-responsive ">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Patient</th>
+          <th>Result</th>
+          <th>Description</th>
+          <th>Doctor</th>
+          <th>Dispener</th>
+          <th>Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of prescriptions,index as i">
+          <td>{{i+1}}</td>
+          <td>{{p.Patient.FirstName}} {{p.Patient.MiddleName}} {{p.Patient.LastName}}</td>
+          <td>{{p.Result}}</td>
+          <td>{{p.Description}}</td>
+          <td>{{p.Doctor.FirstName}} {{p.Doctor.MiddleName}} {{p.Doctor.LastName}}</td>
+          <td>{{p.Dispener.FirstName}} {{p.Dispener.MiddleName}} {{p.Dispener.LastName}}</td>
+          <td>{{p.Time}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">New Prescription</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>

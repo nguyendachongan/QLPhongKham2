@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="col-sm-12 white-box">
+    <div class="col-sm-5">
+      <input class="form-control" placeholder="search ..." [(ngModel)]="search">
+    </div>
+    <button
+      class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light"
+      (click)="staticModal.show()">Add Drug
+    </button>
+  </div>
+  <div class="col-sm-12">
+    <div class="white-box">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Type</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let d of drugs,index as i" (click)="onSelect(d)">
+            <td>{{i+1}}</td>
+            <td (click)="onSelect(d.DrugID)"> {{d.Name}}</td>
+            <td>{{d.Description}}</td>
+            <td>{{d.Price}}</td>
+            <td>{{d.Type.Type}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade  bs-example-modal-lg" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">New Drug</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="white-box">
+              <form class="form">
+                <div class="form-group row">
+                  <label for="Name" class="col-2 col-form-label"> Name</label>
+                  <div class="col-10">
+                    <input class="form-control" type="search" [(ngModel)]="drug.Name" name="Name" id="Name">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="Description" class="col-2 col-form-label">Description</label>
+                  <div class="col-10">
+                    <input class="form-control" type="email" [(ngModel)]="drug.Description" name="Description" id="Description">
+                </div>
+                </div>
+                <div class="form-group row">
+                  <label for="Price" class="col-2 col-form-label">Price</label>
+                  <div class="col-10">
+                    <input class="form-control" type="number" [(ngModel)]="drug.Price" id="Price" name="Price">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="Type" class="col-2 col-form-label">Type</label>
+                  <div class="col-10">
+                    <select [(ngModel)]="drug.TypeID" id="Type" class="form-control" name="Type">
+                      <option *ngFor="let t of types" [value]="t.TypeOfDrugID">{{t.Type}}</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger waves-effect text-left" (click)="save()">Save</button>
+        <button type="button" class="btn btn-default waves-effect text-left" aria-label="Close"
+                (click)="staticModal.hide()">Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

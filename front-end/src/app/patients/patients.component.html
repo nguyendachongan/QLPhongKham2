@@ -1,0 +1,106 @@
+<div class="row">
+  <div class="col-sm-12 white-box">
+    <div class="col-sm-5">
+      <input class="form-control" placeholder="search ..." >
+    </div>
+    <button class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light"
+            (click)="staticModal.show()">Add Patient</button>
+  </div>
+  <div class="col-sm-12">
+    <div class="white-box">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Identify Card</th>
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>Address</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let p of patients,index as i" >
+            <td>{{i+1}}</td>
+            <td>{{p.IdentifyCard}}</td>
+            <td>{{p.FirstName}} {{p.MiddleName}}  {{p.LastName}} </td>
+            <td>{{p.Phone}}</td>
+            <td > {{p.Gender ? 'Male' : 'Female' }}</td>
+            <td>{{p.Address}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade  bs-example-modal-lg" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">New Patient</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="white-box">
+              <form class="form">
+                <div class="form-group row">
+                  <label for="IdentifyCard" class="col-2 col-form-label">Identify Card</label>
+                  <div class="col-10">
+                    <input class="form-control" type="text" value="" id="IdentifyCard" ngModel="IdentifyCard">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="FirstName" class="col-2 col-form-label"> First Name</label>
+                  <div class="col-10">
+                    <input class="form-control" type="search" ngModel="FirstName" id="FirstName">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="MiddleName" class="col-2 col-form-label">Middle Name</label>
+                  <div class="col-10">
+                    <input class="form-control" type="email" ngModel="MiddleName" id="MiddleName">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="LastName" class="col-2 col-form-label">Last Name</label>
+                  <div class="col-10">
+                    <input class="form-control" type="url" ngModel="LastName" id="LastName">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="Phone" class="col-2 col-form-label">Phone</label>
+                  <div class="col-10">
+                    <input class="form-control" type="tel" ngModel="Phone" id="Phone">
+                  </div>
+                </div>
+                <!--<div class="form-group row">-->
+                  <!--<label for="Gender" class="col-2 col-form-label">Gender</label>-->
+                  <!--<div class="col-10">-->
+                    <!--<input class="form-control" type="checkbox" ngModel="Gender" id="Gender">-->
+                  <!--</div>-->
+                <!--</div>-->
+                <div class="form-group row">
+                  <label for="Address" class="col-2 col-form-label">Address</label>
+                  <div class="col-10">
+                    <input class="form-control" type="text" ngModel="Address" id="Address">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger waves-effect text-left" >Save</button>
+        <button type="button" class="btn btn-default waves-effect text-left"aria-label="Close" (click)="staticModal.hide()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
