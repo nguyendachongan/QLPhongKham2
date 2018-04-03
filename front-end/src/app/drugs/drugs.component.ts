@@ -34,10 +34,8 @@ export class DrugsComponent implements OnInit {
   onSelect(id: number): void {
     this._drugsService.getDrug(id).subscribe(
       data =>  this.drug = data);
-    console.log( this.drug);
   }
   save() {
-    console.log(this.drug);
     this._drugsService.postDrug(this.drug);
   }
 }

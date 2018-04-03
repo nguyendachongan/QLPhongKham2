@@ -19,15 +19,19 @@
             <th>Description</th>
             <th>Price</th>
             <th>Type</th>
+            <th>Actions</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let d of drugs,index as i" (click)="onSelect(d)">
+          <tr *ngFor="let d of drugs,index as i">
             <td>{{i+1}}</td>
             <td (click)="onSelect(d.DrugID)"> {{d.Name}}</td>
             <td>{{d.Description}}</td>
             <td>{{d.Price}}</td>
             <td>{{d.Type.Type}}</td>
+            <td>
+              <button type="button" class="btn btn-danger waves-effect text-left" >Edit</button>
+            </td>
           </tr>
           </tbody>
         </table>
