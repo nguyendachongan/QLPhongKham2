@@ -15,3 +15,12 @@ D:\QLPhongKham\Project_QLPK\Project_WcfService\bin\Project_DAL.dll.config
 D:\QLPhongKham\Project_QLPK\Project_WcfService\obj\Debug\Project_WcfService.csprojResolveAssemblyReference.cache
 D:\QLPhongKham\Project_QLPK\Project_WcfService\obj\Debug\Project_WcfService.dll
 D:\QLPhongKham\Project_QLPK\Project_WcfService\obj\Debug\Project_WcfService.pdb
+D:\QLPK\Project_QLPK\Project_WcfService\bin\Project_WcfService.dll.config
+D:\QLPK\Project_QLPK\Project_WcfService\bin\Project_WcfService.dll
+D:\QLPK\Project_QLPK\Project_WcfService\bin\Project_WcfService.pdb
+D:\QLPK\Project_QLPK\Project_WcfService\bin\Project_DAL.dll
+D:\QLPK\Project_QLPK\Project_WcfService\bin\Project_DAL.pdb
+D:\QLPK\Project_QLPK\Project_WcfService\bin\Project_DAL.dll.config
+D:\QLPK\Project_QLPK\Project_WcfService\obj\Debug\Project_WcfService.csprojResolveAssemblyReference.cache
+D:\QLPK\Project_QLPK\Project_WcfService\obj\Debug\Project_WcfService.dll
+D:\QLPK\Project_QLPK\Project_WcfService\obj\Debug\Project_WcfService.pdb
