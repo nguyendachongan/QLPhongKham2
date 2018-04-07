@@ -547,7 +547,7 @@ namespace Project_WcfService
             return ls;
         }
 
-        public bool insertPatient(ePatient e)
+        public ePatientOfDay insertPatient(ePatient e)
         {
             try
             {
@@ -561,11 +561,13 @@ namespace Project_WcfService
                 temp.PatientID = e.PatientID;
                 temp.Phone = e.Phone; 
                 patientdal.insertPatient(temp);
-                return true;
+                ePatientOfDay pod = new ePatientOfDay();
+                pod = insertPatientOfDay(temp.PatientID);
+                return pod;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 
@@ -623,20 +625,21 @@ namespace Project_WcfService
             return ls;
         }
 
-        public bool insertPatientOfDay(ePatientOfDay e)
+        public ePatientOfDay insertPatientOfDay(int id)
         {
             try
             {
-                PartientOfDay temp = new PartientOfDay();
+                ePatientOfDay temp = new ePatientOfDay();
+                PartientOfDay e = potdal.insertPartientOfDay(id);
                 temp.Number = e.Number;
-                temp.PartientID = e.PatientID;
-                temp.RoomID = e.RoomID;
-                potdal.insertPartientOfDay(temp);
-                return true;
+                temp.PatientID = e.PartientID;
+                temp.RoomID = e.RoomID;     
+                temp.Room = getOneRoom(e.RoomID).Room;
+                return temp;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 

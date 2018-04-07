@@ -33,8 +33,8 @@ export class DrugsComponent implements OnInit {
   }
   onSelect(id: number): void {
     this._drugsService.getDrug(id).subscribe(
-      data =>  this.drug = data);
-  }
+    data =>  this.drug = data);
+}
   save() {
     this._drugsService.postDrug(this.drug);
   }

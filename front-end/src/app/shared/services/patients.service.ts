@@ -20,5 +20,15 @@ export class PatientsService {
     const url = `${this.Url}/getAllPatients/`;
     return this.http.get<any[]>(url);
   }
+
+  addPatientOfDay(id: number): any {
+    const url = `${this.Url}/PatientOfDays/new`;
+    return this.http.post<any>(url, id);
+  }
+
+  addPatient(patient: any): any {
+    const url = `${this.Url}/Patients/new`;
+    return this.http.post<any>(url, patient);
+  }
 }
 

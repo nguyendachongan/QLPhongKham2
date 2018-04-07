@@ -21,10 +21,23 @@ namespace Project_DAL
         {
             return db.PartientOfDays.Where(x => x.PartientID == Id).FirstOrDefault();
         }
-        public void insertPartientOfDay(PartientOfDay PartientOfDay)
+        public PartientOfDay insertPartientOfDay(int PID)
         {
-            db.PartientOfDays.InsertOnSubmit(PartientOfDay);
+            var roomids = db.Rooms.Select(r => r.RoomID);
+            var f = roomids.FirstOrDefault();
+            var min = new { Key = f, Count = db.PartientOfDays.Where(x => x.RoomID == f).Count() };
+            foreach (var q in roomids)
+            {
+                var patients = db.PartientOfDays.Where(x => x.RoomID == q).Count();
+                if (patients < min.Count) min = new { Key = q, Count =  patients} ;
+            }
+            PartientOfDay pod = new PartientOfDay();
+            pod.PartientID = PID;
+            pod.RoomID = min.Key;
+            pod.Number = min.Count + 1;
+            db.PartientOfDays.InsertOnSubmit(pod);
             db.SubmitChanges();
+            return pod;
         }
         public void updatePartientOfDay(PartientOfDay PartientOfDay)
         {

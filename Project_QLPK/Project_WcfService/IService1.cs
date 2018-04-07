@@ -157,7 +157,9 @@ namespace Project_WcfService
         List<ePatient> getAllPatient();
 
         [OperationContract]
-        bool insertPatient(ePatient e);
+        [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json,
+          RequestFormat = WebMessageFormat.Json, UriTemplate = "Patients/new")]
+        ePatientOfDay insertPatient(ePatient e);
 
         [OperationContract]
         ePatient getOnePatient(int id);
@@ -176,7 +178,9 @@ namespace Project_WcfService
         List<ePatientOfDay> getAllPatientOfDay();
 
         [OperationContract]
-        bool insertPatientOfDay(ePatientOfDay e);
+        [WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json,
+          RequestFormat = WebMessageFormat.Json, UriTemplate = "PatientOfDays/new")]
+       ePatientOfDay insertPatientOfDay(int id);
 
         [OperationContract]
         ePatientOfDay getOnePatientOfDay(int id);
@@ -393,6 +397,8 @@ namespace Project_WcfService
         public int Number { get; set; }
         [DataMember]
         public int RoomID { get; set; }
+        [DataMember]
+        public string Room { get; set; }
 
     }
     public class ePrescriptionDetail

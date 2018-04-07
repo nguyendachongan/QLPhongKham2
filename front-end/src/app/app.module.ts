@@ -6,6 +6,7 @@ import { NgIf } from '@angular/common';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { AlertsModule } from 'angular-alert-module';
 
 import {MenuComponent} from './shared/layout/menu/menu.component';
 import {HeaderComponent} from './shared/layout/header/header.component';
@@ -47,7 +48,8 @@ import {TypeOfDrugsService} from './shared/services/type_of_drugs.service';
     HttpClientModule,
     ModalModule.forRoot(),
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,
+    AlertsModule.forRoot()
   ],
   providers: [PatientsService, DrugsService, AccountsService, PrescriptionsService, TypeOfDrugsService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
